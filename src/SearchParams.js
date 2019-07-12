@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 const SearchParams = () => {
-  const location = "Seattle, WA";
+  const [location, setLocation] = useState("Seattle, WA");
 
   return (
     <div className="search-params">
@@ -12,6 +12,7 @@ const SearchParams = () => {
             id="location"
             type="text"
             value={location}
+            onChange={e => setLocation(e.target.value)}
             placeholder="Location"
           />
         </label>

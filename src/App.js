@@ -8,10 +8,10 @@ import Details from "./Details";
 import ThemeContext from "./ThemeContext";
 
 const App = () => {
-  const themeHook = useState("darkblue");
+  const theme = useState("red");
   return (
     <React.StrictMode>
-      <ThemeContext.Provider value={themeHook}>
+      <ThemeContext.Provider value={theme}>
         <div>
           <header>
             <Link to="/">Adopt Me!</Link>

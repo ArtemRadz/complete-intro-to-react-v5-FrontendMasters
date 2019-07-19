@@ -1,8 +1,8 @@
 {
   "name": "complete-intro-to-react-v5",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "complete-intro-to-react-v5",
+  "main": "src/App.js",
   "scripts": {
     "dev": "parcel src/index.html",
     "format": "prettier \"src/**/*.{js,html}\" --write",

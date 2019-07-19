@@ -12,25 +12,30 @@ class Details extends React.Component {
   state = { loading: true, showModal: false };
 
   componentDidMount() {
-    pet.animal(this.props.id).then(({ animal }) => {
-      this.setState({
-        animal: animal.type,
-        name: animal.name,
-        breed: animal.breeds.primary,
-        media: animal.photos,
-        location: `${animal.contact.address.city}, ${animal.contact.address.state}`,
-        description: animal.description,
-        url: animal.url,
-        loading: false
-      });
-    }, console.error);
+    pet
+      .animal(this.props.id)
+      .then(({ animal }) => {
+        this.setState({
+          animal: animal.type,
+          name: animal.name,
+          breed: animal.breeds.primary,
+          media: animal.photos,
+          location: `${animal.contact.address.city}, ${animal.contact.address.state}`,
+          description: animal.description,
+          url: animal.url,
+          loading: false
+        });
+      })
+      .catch(err => this.setState({ error: err }));
   }
 
   toggleModal = () => this.setState({ showModal: !this.state.showModal });
   adopt = () => navigate(this.state.url);
 
   render() {
-    if (this.state.loading) return <h1>loading...</h1>;
+    if (this.state.loading) {
+      return <h1>loading...</h1>;
+    }
 
     const {
       animal,

@@ -21,8 +21,8 @@
   },
   "homepage": "https://github.com/ArtemRadz/complete-intro-to-react-v5-FrontendMasters#readme",
   "devDependencies": {
-    "@babel/core": "^7.5.4",
-    "@babel/plugin-proposal-class-properties": "^7.5.0",
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/preset-env": "^7.5.4",
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^10.0.2",
@@ -36,6 +36,8 @@
     "prettier": "^1.18.2"
   },
   "dependencies": {
+    "@emotion/babel-preset-css-prop": "^10.0.14",
+    "@emotion/core": "^10.0.14",
     "@frontendmasters/pet": "^1.0.3",
     "@reach/router": "^1.2.1",
     "react": "^16.8.6",

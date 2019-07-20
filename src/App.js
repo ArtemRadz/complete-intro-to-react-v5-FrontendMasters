@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { render } from "react-dom";
 
-import { Router, Link } from "@reach/router";
+import { Router } from "@reach/router";
 
 import SearchParams from "./SearchParams";
 import Details from "./Details";
 import ThemeContext from "./ThemeContext";
+import NavBar from "./NavBar";
 
 const App = () => {
   const theme = useState("red");
@@ -13,9 +14,7 @@ const App = () => {
     <React.StrictMode>
       <ThemeContext.Provider value={theme}>
         <div>
-          <header>
-            <Link to="/">Adopt Me!</Link>
-          </header>
+          <NavBar></NavBar>
           <Router>
             <SearchParams path="/" />
             <Details path="/details/:id" />

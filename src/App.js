@@ -3,11 +3,11 @@ import { render } from "react-dom";
 
 import { Router } from "@reach/router";
 
-import SearchParams from "./SearchParams";
 import ThemeContext from "./ThemeContext";
 import NavBar from "./NavBar";
 
 const Details = lazy(() => import("./Details"));
+const SearchParams = lazy(() => import("./SearchParams"));
 
 const App = () => {
   const theme = useState("red");

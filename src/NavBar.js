@@ -2,13 +2,11 @@ import React from "react";
 
 import { Link } from "@reach/router";
 import { css } from "@emotion/core";
-import colors from "./colors";
 
 const NavBar = () => {
   return (
     <header
       css={css`
-        background-color: ${colors.primary};
         padding: 15px;
       `}
     >

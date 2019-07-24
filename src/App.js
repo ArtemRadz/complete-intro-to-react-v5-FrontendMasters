@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { render } from "react-dom";
 
 import { Router } from "@reach/router";
 
@@ -24,4 +25,4 @@ const App = () => {
   );
 };
 
-export default App;
+render(<App />, document.getElementById("root"));

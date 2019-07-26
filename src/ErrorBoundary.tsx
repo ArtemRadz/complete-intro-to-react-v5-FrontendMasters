@@ -1,27 +1,27 @@
-import React from "react";
+import React, { ErrorInfo } from "react";
 
 import { Link, Redirect } from "@reach/router";
 
 class ErrorBoundary extends React.Component {
-  state = { hasError: false, redirect: false };
+  public state = { hasError: false, redirect: false };
 
-  static getDerivedStateFromError() {
+  public static getDerivedStateFromError() {
     return { hasError: true };
   }
-  componentDidCatch(error, info) {
+  public componentDidCatch(error: Error, info: ErrorInfo) {
     console.error("ErrorBoundary caugth an error", error, info);
   }
-  componentDidUpdate() {
+  public componentDidUpdate() {
     if (this.state.hasError) {
       setTimeout(() => this.setState({ redirect: true }), 5000);
     }
   }
 
-  render() {
+  public render() {
     if (this.state.redirect) {
       return <Redirect to="/" />;
     }
-    if (this.state.hasError)
+    if (this.state.hasError) {
       return (
         <h1>
           There was an error with this listing.
@@ -29,6 +29,7 @@ class ErrorBoundary extends React.Component {
           to go back to the home page of wait five seconds.
         </h1>
       );
+    }
 
     return this.props.children;
   }

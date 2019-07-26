@@ -14,7 +14,7 @@ const App = () => {
     <React.StrictMode>
       <ThemeContext.Provider value={theme}>
         <div>
-          <NavBar></NavBar>
+          <NavBar />
           <Router>
             <SearchParams path="/" />
             <Details path="/details/:id" />

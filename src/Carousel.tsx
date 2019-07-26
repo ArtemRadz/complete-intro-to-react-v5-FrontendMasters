@@ -1,12 +1,23 @@
 import React from "react";
 
-class Carousel extends React.Component {
-  state = {
+import { Photo } from "@frontendmasters/pet";
+
+interface IProps {
+  media: Photo[];
+}
+
+interface IState {
+  active: number;
+  photos: string[];
+}
+
+class Carousel extends React.Component<IProps, IState> {
+  public state = {
     photos: [],
     active: 0
   };
 
-  static getDerivedStateFromProps({ media }) {
+  public static getDerivedStateFromProps({ media }: IProps) {
     let photos = ["http://placeorgi.com/600/600"];
 
     if (media.length) {
@@ -16,22 +27,32 @@ class Carousel extends React.Component {
     return { photos };
   }
 
-  handleIndexClick = event => {
+  public handleIndexClick = (event: React.MouseEvent<HTMLElement>) => {
+    if (!(event.target instanceof HTMLElement)) {
+      return;
+    }
+
     const button = event.target.closest("button");
-    this.setState({
-      active: +button.dataset.index
-    });
+
+    if (button && button.dataset.index) {
+      this.setState({
+        active: +button.dataset.index
+      });
+    }
   };
 
-  handleIndexPressEnter = event => {
-    if (event.key == "Enter") {
+  public handleIndexPressEnter = (event: React.KeyboardEvent<HTMLElement>) => {
+    if (!(event.target instanceof HTMLElement)) {
+      return;
+    }
+    if (event.key === "Enter" && event.target.dataset.index) {
       this.setState({
         active: +event.target.dataset.index
       });
     }
   };
 
-  render() {
+  public render() {
     const { photos, active } = this.state;
 
     return (
